@@ -94,7 +94,7 @@ python app.py
 ---
 
 ## 🏆 Contributors
-- **[Sheikh Arsalan](https://github.com/your-github)** - Backend & AI Model
+- **[Sheikh Arsalan](https://github.com/Arsalan0786)** - Backend & AI Model
 - Team Members - Frontend & UI/UX
 
 ---
