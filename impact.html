@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Management Impact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f8ff;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 15px 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .header .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .impact-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .impact-section h2 {
+            color: #2575fc;
+        }
+
+        .impact-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #f0f8ff;
+        }
+
+        .dark-mode .impact-section {
+            background-color: #1e1e1e;
+            color: #f0f8ff;
+        }
+
+        .dark-mode .impact-section h2 {
+            color: #74b9ff;
+        }
+        .back-home-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-home-btn:hover {
+            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+            transform: scale(1.05);
+        }
+
+        .dark-mode .back-home-btn {
+            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+        }
+
+        .dark-mode .back-home-btn:hover {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">WASTE MANAGEMENT IMPACT</div>
+        <button onclick="toggleDarkMode()">Switch Mode</button>
+    </div>
+
+    <div class="content">
+        <div class="impact-section">
+            <h2>Why Waste Management Matters</h2>
+            <p>Effective waste management is crucial for maintaining environmental balance and sustainability. Without proper disposal and recycling, waste can contribute to pollution, climate change, and resource depletion.</p>
+            <h2>Environmental Impact</h2>
+            <p>Poor waste management leads to air, soil, and water pollution. Landfills release methane, a greenhouse gas more potent than carbon dioxide. Proper waste segregation and recycling help reduce this impact.</p>
+            <h2>Social & Economic Benefits</h2>
+            <p>Efficient waste management creates jobs in recycling and waste processing industries, promotes a cleaner environment, and reduces public health risks caused by waste-related diseases.</p>
+            <h2>Future Innovations in Waste Management</h2>
+            <p>AI and smart waste management systems are revolutionizing waste collection, sorting, and recycling, making processes more efficient and sustainable.</p>
+        </div>
+        <button class="back-home-btn" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>

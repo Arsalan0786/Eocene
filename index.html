@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Management</title>
+    <style>
+        :root {
+            --background-light: #f0f8ff;
+            --background-dark: #121212;
+            --text-light: #333;
+            --text-dark: #f0f8ff;
+            --primary-light: #2575fc;
+            --primary-dark: #74b9ff;
+            --sidebar-light: #74b9ff;
+            --sidebar-dark: #1e1e1e;
+            --header-light: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            --header-dark: linear-gradient(90deg, #1e1e1e 0%, #333 100%);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--header-light);
+            color: white;
+            padding: 15px 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .header .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .nav button {
+            background-color: white;
+            color: #2575fc;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .header .nav button:hover {
+            background-color: #2575fc;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: var(--sidebar-light);
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            position: fixed;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .content {
+            margin-left: 20%;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .content .ai-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, background 0.3s ease;
+            position: relative;
+        }
+
+        .content .ai-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .content .ai-box button {
+            margin-top: 20px;
+            background-color: #ffffff;
+            color: #ff6b81;
+            border: 2px solid #ff6b81;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .content .ai-box button:hover {
+            background-color: #ff6b81;
+            color: white;
+        }
+
+        .content .facts {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .content .facts h3 {
+            color: #2575fc;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content .facts ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .content .facts ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .content .decorations {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .content .decorations .diamond {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .content .decorations .diamond:hover {
+            transform: rotate(45deg) scale(1.1);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .dark-mode {
+            --background-light: #121212;
+            --text-light: #f0f8ff;
+            --primary-light: #74b9ff;
+            --sidebar-light: #1e1e1e;
+            --header-light: linear-gradient(90deg, #1e1e1e 0%, #333 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">WASTE MANAGEMENT</div>
+        <div class="nav">
+            <button onclick="toggleDarkMode()">Switch Mode</button>
+            <button onclick="window.location.href='about.html'">About</button>
+            <!-- <button>Fact</button> -->
+            <button onclick="window.location.href='impact.html'">Impact</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <p>Waste Management</p>
+        <p>Recycling</p>
+        <p>Composting</p>
+        <p>Landfills</p>
+        <p>Incineration</p>
+        <p>AI in Waste Management</p>
+        
+        
+    
+    </div>
+
+    <div class="content">
+        <div class="ai-box" id="aiBox">
+            <div class="tooltip">
+                (AI model)
+                <span class="tooltiptext">Upload your file for analysis</span>
+            </div>
+            <button onclick="alert('File Uploaded Successfully!')">Upload</button>
+        </div>
+
+        <div class="facts">
+            <h3>Global Waste Statistics</h3>
+            <ul>
+                <li>Approximately 2 billion tons of waste are generated annually worldwide.</li>
+                <li>Only 19% of global waste is recycled or composted, with the rest either incinerated or dumped in landfills.</li>
+                <li>By 2050, annual waste generation is expected to increase by 70% if no action is taken.</li>
+            </ul>
+
+            <h3>How Waste Should Be Managed</h3>
+            <ul>
+                <li>Promote waste reduction through sustainable consumption.</li>
+                <li>Encourage proper segregation of recyclable, organic, and hazardous waste.</li>
+                <li>Invest in advanced recycling and composting facilities.</li>
+            </ul>
+
+            <h3>AI in Waste Management</h3>
+            <ul>
+                <li>AI-powered robots are used to sort recyclable materials efficiently.</li>
+                <li>AI-based predictive analytics helps optimize waste collection routes, reducing fuel consumption.</li>
+                <li>Machine learning algorithms identify trends in waste generation and provide actionable insights.</li>
+            </ul>
+
+            <h3>Future of AI + Waste Management</h3>
+            <ul>
+                <li>Integration of AI with IoT devices for real-time waste monitoring and management.</li>
+                <li>Enhanced AI-driven recycling processes for higher efficiency.</li>
+                <li>Development of AI models to predict and mitigate environmental impacts of waste.</li>
+            </ul>
+        </div>
+
+        <div class="decorations">
+            <div class="diamond"></div>
+            <div class="diamond"></div>
+            <div class="diamond"></div>
+            <div class="diamond"></div>
+        </div>
+    </div>
+
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const facts = document.querySelector('.facts');
+            const modeButton = document.querySelector('.header .nav button:first-child');
+    
+            body.classList.toggle('dark-mode');
+    
+            // Update dark mode button text
+            const darkModeEnabled = body.classList.contains('dark-mode');
+            modeButton.textContent = darkModeEnabled ? 'Light Mode' : 'Dark Mode';
+    
+            // Adjust styles for facts section dynamically
+            if (darkModeEnabled) {
+                facts.style.backgroundColor = '#1e1e1e';
+                facts.style.color = '#f0f8ff';
+                facts.querySelectorAll('h3').forEach(h3 => (h3.style.color = '#74b9ff'));
+            } else {
+                facts.style.backgroundColor = '#f9f9f9';
+                facts.style.color = '#333';
+                facts.querySelectorAll('h3').forEach(h3 => (h3.style.color = '#2575fc'));
+            }
+        }
+    
+        // AI box color and interaction
+        const aiBox = document.getElementById('aiBox');
+    
+        aiBox.addEventListener('mousemove', () => {
+            aiBox.style.transform = 'scale(1.05)';
+        });
+    
+        aiBox.addEventListener('mouseleave', () => {
+            aiBox.style.transform = 'scale(1)';
+        });
+    
+        setInterval(() => {
+            const randomColor1 = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+            const randomColor2 = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+            aiBox.style.background = `linear-gradient(135deg, ${randomColor1}, ${randomColor2})`;
+        }, 2000);
+    </script>
+    
+</body>
+</html>

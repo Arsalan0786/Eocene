@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Waste Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f8ff;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 15px 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .header .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .about-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .about-section h2 {
+            color: #2575fc;
+        }
+
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #f0f8ff;
+        }
+
+        .dark-mode .about-section {
+            background-color: #1e1e1e;
+            color: #f0f8ff;
+        }
+
+        .dark-mode .about-section h2 {
+            color: #74b9ff;
+        }
+        .back-home-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-home-btn:hover {
+    background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+    transform: scale(1.05);
+}
+
+.dark-mode .back-home-btn {
+    background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+}
+
+.dark-mode .back-home-btn:hover {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">ABOUT WASTE MANAGEMENT</div>
+        <button onclick="toggleDarkMode()">Switch Mode</button>
+    </div>
+
+    <div class="content">
+        <div class="about-section">
+            <h2>What is Waste Management?</h2>
+            <p>Waste management refers to the processes involved in handling waste, from its collection to disposal. It includes practices such as recycling, composting, landfilling, and incineration.</p>
+            <h2>Importance of Waste Management</h2>
+            <p>Proper waste management helps in reducing pollution, conserving natural resources, and mitigating climate change. It ensures sustainable living for future generations.</p>
+            <h2>Role of Technology in Waste Management</h2>
+            <p>Technologies like AI, IoT, and smart waste collection systems are making waste management more efficient by optimizing resource allocation and waste sorting.</p>
+        </div>
+        <div class="button">
+            <button class="back-home-btn" onclick="window.location.href='index.html'">Back to Home</button>
+        </div>
+        
+    </div>
+    
+
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
+
